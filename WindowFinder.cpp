@@ -23,7 +23,7 @@ BOOL CALLBACK WindowFinder::EnumWindowsProc(HWND hWnd, LPARAM lParam)
     if (!enum_context_callback->proc_name.empty() && IsWindowVisible(hWnd))
     {
         //get process_name from wndprocesspid
-        std::string process_name_from_pid = GetProcessNameFromPid(WndProcessPid);
+        std::string process_name_from_pid = WindowFinder::GetProcessNameFromPid(WndProcessPid);
         if (process_name_from_pid == enum_context_callback->proc_name)
         {
             //Add target hWnd to the proc_handles vector
