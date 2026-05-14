@@ -7,7 +7,7 @@ CaptureX is a C++ Windows Screen Capture Tool capable of capturing screenshots (
 - Specific ProcessID (PID)
 - Process Name
 - Entire Desktop (~Supports Screen Capturing Multiple Screens/Monitors)
-- Minimized Windows
+- Also suppors screen capturing of Minimized Windows
 
 ### Usage
 
