@@ -154,7 +154,7 @@ bool CaptureSpace::ScreenCapture::SaveScreenCapture(HBITMAP* hbitmap_ptr, const 
 
 HBITMAP CaptureSpace::ScreenCapture::WindowScreenCapture(HWND hWnd)
 {
-    std::optional<UINT> window_state = GetWindowState(hWnd);
+    std::optional<UINT> window_state = CaptureSpace::ScreenCapture::GetWindowState(hWnd);
     if (window_state.has_value())
     {
         CaptureSpace::ScreenCapture::InitScreenCapture init_capture;
@@ -174,7 +174,7 @@ HBITMAP CaptureSpace::ScreenCapture::WindowScreenCapture(HWND hWnd)
             std::optional<LONG> ret_WindowInformation = CaptureSpace::ScreenCapture::RestoreWindowState(hWnd);
             if (ret_WindowInformation.has_value())
             {
-                bool hBitMapRetVal = BitMapCaptureScreen(hWnd, init_capture, Screen_hdc, Screen_hdc_compatdc);
+                bool hBitMapRetVal = CaptureSpace::ScreenCapture::BitMapCaptureScreen(hWnd, init_capture, Screen_hdc, Screen_hdc_compatdc);
                 if (hBitMapRetVal == false)
                 {
                     return nullptr;
@@ -191,7 +191,7 @@ HBITMAP CaptureSpace::ScreenCapture::WindowScreenCapture(HWND hWnd)
         }
         else
         {
-            bool hBitMapRetVal = BitMapCaptureScreen(hWnd, init_capture, Screen_hdc, Screen_hdc_compatdc);
+            bool hBitMapRetVal = CaptureSpace::ScreenCapture::BitMapCaptureScreen(hWnd, init_capture, Screen_hdc, Screen_hdc_compatdc);
             if (hBitMapRetVal == false)
             {
                 return nullptr;
